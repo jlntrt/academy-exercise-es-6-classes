@@ -7,7 +7,7 @@ module.exports = {
   devtool: 'source-map', // 'eval'
   entry: [
     'webpack-hot-middleware/client',
-    './src/index'
+    './src/index.ts'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -24,15 +24,16 @@ module.exports = {
     new WebpackNotifierPlugin()
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
     root: path.resolve('./src/'),
     modulesDirectories: ['node_modules']
   },
   module: {
     loaders: [
       {
-        test: /(\.js|\.jsx)$/,
+        test: /(\.ts|\.tsx)$/,
         loaders: ['babel'],
+        use: 'ts-loader',
         exclude: /node_modules/
       },
       {

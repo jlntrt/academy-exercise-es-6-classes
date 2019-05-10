@@ -33,14 +33,14 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.ts', '.tsx'],
     root: path.resolve('./src/'),
     modulesDirectories: ['node_modules']
   },
   module: {
     loaders: [
       {
-        test: /(\.js|\.jsx)$/,
+        test: /(\.ts|\.tsx)$/,
         loaders: ['babel'],
         exclude: /node_modules/
       },
